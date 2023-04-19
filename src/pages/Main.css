@@ -1,6 +1,7 @@
 .body {
     margin: 0px;
     padding: 0px;
+    font-family: 'Karla', sans-serif;
 }
 
 header {
@@ -143,4 +144,11 @@ footer {
     border: none;
     color: #2196F3;
     box-shadow: 2px 2px 10px rgba(146, 145, 145, 0.3);
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+}
+
+.content-button:hover {
+    background-color: #e4eff7;
 }
