@@ -1,14 +1,18 @@
 .body {
     margin: 0px;
     padding: 0px;
+    border: none;
     font-family: 'Karla', sans-serif;
 }
 
-header {
+.header {
     display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 75px;
-    background-color: rgb(255, 255, 255);
+    background: rgb(255, 255, 255);
     border-bottom: 1px solid #999898;
     box-shadow: 0px 5px 10px rgba(146, 145, 145, 0.3); 
 }
@@ -33,6 +37,16 @@ header {
     position: relative;
     font-size: 17px;
     text-transform: uppercase;
+    color:rgba(0, 0, 0, 0.3);
+
+    /* &:hover { //scss try
+        text-decoration: underline;
+    } */
+}
+
+.main-content {
+    display: inline-block;
+    margin-top: 32px;
 }
 
 .content-image {
@@ -54,13 +68,15 @@ ul {
 .icon {
     margin-top: auto;
     margin-bottom: auto;
-    padding-left: 210px;
     width: 45px;
+    padding-left: 210px;
 }
 
-footer {
-    display: flex;
-    position: fixed;
+.footer {
+    position: absolute;
+    top: 150;
+    left: 0;
+    margin-top: 20px;
     justify-content: center;
     height: 45px;
     width: 100%;
@@ -89,40 +105,67 @@ footer {
 
 #search, #first, #second {
     height: 56px;
-    width: 200px;
+    width: 210px;
     border-radius: 8px;
     margin-right: 20px;
 }
 
 #third {
     height: 56px;
-    width: 200px;
+    width: 210px;
     border-radius: 8px;
 }
 
 .cards {
     display: grid;
+    /* Автоматически заполняем на всю ширину grid-контейнера */
     grid-template-columns: repeat(auto-fill, 200px);
     width: 100%;
-    max-width: 1000px;
+    max-width: 1000px; /* Ширина grid-контейнера */
     justify-content: center;
-    justify-items: center;
+    justify-items: center; /* Размещаем карточку по центру */
     column-gap: 20px;
-    row-gap: 30px;
-    margin: 60px auto;
+    row-gap: 24px;
+    margin: 0 auto;
 }
 
 .card {
-    width: 200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    width: 100%;
+    max-width: 1000px;
+    justify-items: center;
+    column-gap: 20px;
+    row-gap: 24px;
+    margin: 20px auto;
+
     background-color: #ffff;
     box-shadow: 2px 2px 10px rgba(146, 145, 145, 0.3);
     border-radius: 4px;
 }
 
+.card-top {
+    flex: 0 0 220px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
+    position: relative;
+    overflow: hidden;
+}
+
 .card-image {
     display: block;
-    max-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
     border-radius: 4px 4px 0 0;
+}
+
+.image-in-card {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Встраиваем картинку в контейнер card__image */
+    transition: 0.2s;
 }
 
 .card-headline {
